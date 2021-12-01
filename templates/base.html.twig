@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+{# je créé un block qui par defaut prendra ce style css, ce block sert de variable qui pourra etre inserer dans une page html et etre modifiée   #}
+    {% block css %}
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+    {% endblock css %}
+
+    {# je créé un block metatitle qui par defaut affichera "La piscine"   #}
+    <title>{% block metatitle %} La Piscine {% endblock metatitle %} pour vous former!</title>
+
+</head>
+<body>
+<header>
+
+    <nav>
+        <ul class="flex">
+            <img id="ochanmanImg" src="{{ asset('img/ochanman.jpg') }}" alt="ochanman">
+            <li>
+                <a href="{{ path('home') }}">ACCUEIL</a>
+            </li>
+            <li>
+                <a href="{{ path('articles') }}">ARTICLES</a>
+            </li>
+            <li>
+                <a href="{{ path('contact') }}">CONTACT</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block main %}{% endblock main %}
+</main>
+<footer>
+    <nav>
+        <ul class="flex">
+            <li>
+                <a href="{{ path('home') }}">ACCUEIL</a>
+            </li>
+            <li>
+                <a href="{{ path('articles') }}">ARTICLES</a>
+            </li>
+            <li>
+                <a href="{{ path('contact') }}">CONTACT</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+</body>
+</html>

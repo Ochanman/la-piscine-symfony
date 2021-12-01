@@ -1,0 +1,26 @@
+{#je fais appel a la fonction extends qui me permet d inserer le contenu venant de base.html.twig#}
+{% extends "base.html.twig" %}
+
+
+ {# j'insere le block metatitle mais fait appel a la metatitle par defaut en utilisant la fonction parent + le metatitle "Articles"   #}
+{% block metatitle %}
+    {{ parent() }} Articles
+{% endblock metatitle %}
+
+{# j'insere le block main qui permet de mettre du contenu dans le main de ma page articles   #}
+{% block main %}
+    <section class="secArticle">
+
+        {% for article in articles %}
+            {% if article.isPublished %}
+                <div id="contentArticle">
+                    <h1 id="articleH1">{{ article.title }}</h1>
+                    <p id="articleP">{{ article.content }}</p>
+                    <img id="articleImg" src="{{ article.image }}" alt="{{ article.title }}">
+{#je créé un lien qui comporte path avec comme argument le name de la page et l'id qui reprend la valeur de id dans le tableau #}
+                    <a href="{{ path('article', {'id': article.id}) }}">Voir l'article</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endblock main %}

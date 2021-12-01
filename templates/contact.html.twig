@@ -1,0 +1,19 @@
+{#je fais appel a la fonction extends qui me permet d inserer le contenu venant de base.html.twig#}
+{% extends "base.html.twig" %}
+
+ {# j'insere le block metatitle mais fait appel a la metatitle par defaut + le metatitle "Contact"   #}
+{% block metatitle %}
+    {{ parent() }} Contact
+{% endblock metatitle %}
+
+
+{# j'insere le block main qui permet de mettre du contenu dans le main de ma page Contact   #}
+{% block main %}
+    <h1 style="text-align: center">Contact</h1>
+    <div>
+        <img  style="margin: 0 30%" src="https://makina-corpus.com/sites/default/files/styles/800x600/public/2021-02/Symfony-haut.png?itok=zMgt9J2l" alt="image de synfony"/>
+    </div>
+    <div class="text">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est magni aliquam, velit molestias sunt alias explicabo! Id veritatis, error dignissimos adipisci quaerat, provident, itaque ipsa nulla soluta quia qui consectetur minus perferendis molestiae earum rerum? Similique aliquid necessitatibus excepturi, sunt a ab? Sit corrupti temporibus dolore libero, pariatur maxime aspernatur placeat aut consequatur enim aliquid nulla modi officiis repudiandae eos doloribus assumenda nobis ipsam eligendi accusamus error? Asperiores et placeat nemo quasi ab ducimus optio!</p>
+    </div>
+{% endblock main %}
